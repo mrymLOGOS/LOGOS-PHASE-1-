@@ -95,5 +95,12 @@ def eval_ood(y_true_ood: np.ndarray, flagged: np.ndarray) -> Dict[str, float]:
         "TP": tp,
         "FP": fp,
         "TN": tn,
+
+        def __init__(
+    self,
+    anomaly_threshold: float = 0.50,
+    uncertainty_threshold: float = 0.50,
+    safe_stop_anomaly: float = 0.75,
+):
         "FN": fn,
     }
