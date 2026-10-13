@@ -42,3 +42,10 @@
 ۱,Gaussian نزدیک,TPR=0.5 ، واقع‌بینانه‌تر
 ۲,digits + corruption,TPR≈1 ، FPR≈0.08
 date : 2026/10/13
+## آزمایش ۲-ب — جاروی آستانه
+- داده: همان آزمایش ۲ (digits + corruption)
+- نتیجهٔ منتخب:
+  - anomaly_threshold=0.50
+  - uncertainty_threshold=0.50
+  - TPR≈1.000 | FPR≈0.054
+- یادداشت: با افزایش thr_u، FPR از ~0.32 به ~0.054 کاهش یافت؛ TPR روی این داده ثابت ماند.
