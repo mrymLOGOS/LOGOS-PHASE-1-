@@ -17,3 +17,28 @@
 
 ## تصمیم‌ها / یادداشت
 -
+## آزمایش ۱ — OOD نزدیک‌تر
+- داده: عادی N(0,1) | OOD N(1.2, 1.3)
+- نتیجه:
+2026/10/13
+| نسخه | TPR | FPR | توضیح |
+|------|-----|-----|--------|
+| baseline | 0.000 | 0.395 | confidence threshold |
+| LOGOS-SL | 0.500 | 0.000 | z-score monitor |
+
+- یادداشت: با سخت‌تر شدن OOD، TPR از 1.0 به 0.5 افتاد. FPR صفر ماند. pipeline پایدار است. تعمیم واقعی هنوز نشده.
+- ## آزمایش ۲ — پروکسی تصویر (digits + corruption)
+- داده: sklearn load_digits | OOD = نویز قوی + permutation | fit روی train
+- نتیجه:
+2026/10/13
+| نسخه | TPR | FPR | توضیح |
+|------|-----|-----|--------|
+| baseline | 0.000 | 0.383 | confidence threshold |
+| LOGOS-SL | 1.000 | 0.083 | z-score monitor |
+
+- یادداشت: روی پروکسی قوی عمل کرد. FPR غیرصفر است. تعمیم به سنسور خودران هنوز نشده.
+- آزمایش,داده,نتیجهٔ کلیدی
+۰,Gaussian جدا,LOGOS-SL کامل، آسان
+۱,Gaussian نزدیک,TPR=0.5 ، واقع‌بینانه‌تر
+۲,digits + corruption,TPR≈1 ، FPR≈0.08
+date : 2026/10/13
