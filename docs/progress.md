@@ -97,3 +97,38 @@ fit_adaptive p95 + OR | FPR≈0.085 | حساس به نویز≥0.15 و permutati
 کد مرجع: src/logos_sl.py
 آزمایش ۱۰: save/load پارامترهای LOGOS-SL تأیید شد (match True).
 
+## ادامه فاز ۲ — از آزمایش ۹ تا ۱۱ (16/10/2026)
+
+### آزمایش ۹ — پایداری چند seed (نویز 0.15، p95، OR)
+| seed | TPR | FPR |
+|------|-----|-----|
+| 0 | 0.870 | 0.085 |
+| 1 | 0.862 | 0.085 |
+| 2 | 0.850 | 0.085 |
+| 3 | 0.872 | 0.085 |
+| 4 | 0.847 | 0.085 |
+| mean | 0.860 ± 0.01 | 0.085 ± 0 |
+
+### Checkpoint A (16/10/2026)
+| پارامتر | مقدار |
+|---------|--------|
+| ویژگی | img_to_compact_feat (dim≈60) |
+| fit | fit_adaptive(p95, p95) |
+| قانون تصمیم | OR |
+| FPR نوعی | ≈0.085 |
+| TPR نویز 0.15 | ≈0.86 (پایدار) |
+| TPR نویز ≥0.25 | ≈1.0 |
+| TPR permutation ≥0.50 | ≈0.97+ |
+| کد | src/logos_sl.py |
+
+### آزمایش ۱۰ — save/load (16/10/2026)
+before_save = after_load | match True  
+TPR≈0.847 | FPR≈0.085 | thr≈(0.459, 0.358)  
+فایل نمونه: logos_sl_checkpoint_a.npz
+
+### آزمایش ۱۱ — نمونه خروجی (16/10/2026)
+NORMAL: همه OK  
+OOD noise0.15: 4×CAUTION ، 1×OK  
+
+### راهنما
+docs/usage_LOGOS_SL.md — 16/10/2026
