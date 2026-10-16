@@ -96,3 +96,4 @@ fit_adaptive p95 + OR | FPR≈0.085 | حساس به نویز≥0.15 و permutati
 محدودیت: پروکسی آزمایشگاهی است؛ نه سنسور خودران واقعی.
 کد مرجع: src/logos_sl.py
 آزمایش ۱۰: save/load پارامترهای LOGOS-SL تأیید شد (match True).
+
