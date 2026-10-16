@@ -117,3 +117,9 @@ def eval_ood(y_true_ood: np.ndarray, flagged: np.ndarray) -> Dict[str, float]:
         "TN": tn,
         "FN": fn,
         }
+
+## وضعیت فاز ۲ تا اینجا (16/10/2026)
+- پیش‌فرض پژوهشی: fit_adaptive p95
+- آزمایش ۴ و ۵: TPR≈0.95 ، FPR≈0.085 روی CIFAR فشرده
+- API رسمی fit_adaptive در logos_sl.py تأیید شد
+- هدف بعدی: کاهش FPR با حفظ TPR قابل قبول
