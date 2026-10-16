@@ -1,0 +1,16 @@
+# راهنمای استفاده — LOGOS-SL
+
+```python
+from logos_sl import LogosSLMonitor, img_to_compact_feat  # یا مسیر src
+
+# آموزش / آستانه تطبیقی
+m = LogosSLMonitor().fit_adaptive(X_normal, 95.0, 95.0)
+
+# یا بارگذاری
+# m = LogosSLMonitor().load("logos_sl_checkpoint_a.npz")
+
+out = m.predict(X)
+# out["anomaly_score"], out["uncertainty"], out["decision"]
+# decision: OK | CAUTION | SAFE_STOP
+
+m.save("logos_sl_checkpoint_a.npz")
