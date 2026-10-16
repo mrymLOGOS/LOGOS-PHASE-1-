@@ -1,8 +1,7 @@
+
 """
 بنیاد LOGOS (Logos Foundation)
 شاخه: LOGOS-SL — Supervisory Layer for Epistemic Uncertainty
-
-فاز ۱: مانیتور ناهنجاری + عدم‌قطعیت + تصمیم
 """
 # Checkpoint A (فاز ۲): fit_adaptive p95 + OR | مرجع آزمایش‌های ۴–۹
 from __future__ import annotations
@@ -12,15 +11,9 @@ import numpy as np
 
 
 def img_to_compact_feat(img: Union[np.ndarray, Any]) -> np.ndarray:
-    """
-    فشرده‌سازی تصویر به ویژگی کم‌بُعد برای LOGOS-SL.
-    ورودی: (C,H,W) یا (H,W,C) — معمولاً 3x32x32
-    خروجی: mean/std/min/max هر کانال + میانگین بلوک‌های 8x8
-    """
     x = img.numpy() if hasattr(img, "numpy") else np.asarray(img, dtype=np.float64)
     if x.ndim != 3:
         raise ValueError("img must be 3D (C,H,W) or (H,W,C)")
-    # اگر HWC بود به CHW
     if x.shape[0] not in (1, 3) and x.shape[-1] in (1, 3):
         x = np.transpose(x, (2, 0, 1))
     c, h, w = x.shape
@@ -36,8 +29,6 @@ def img_to_compact_feat(img: Union[np.ndarray, Any]) -> np.ndarray:
 
 
 class LogosSLMonitor:
-    """مانیتور نظارتی LOGOS-SL"""
-
     def __init__(
         self,
         anomaly_threshold: float = 0.50,
@@ -56,6 +47,21 @@ class LogosSLMonitor:
             raise ValueError("X_normal must be 2D with at least 2 rows")
         self.mu = X_normal.mean(axis=0)
         self.sigma = X_normal.std(axis=0) + 1e-6
+        return self
+
+    def fit_adaptive(
+        self,
+        X_normal: np.ndarray,
+        percentile_anom: float = 95.0,
+        percentile_unc: float = 95.0,
+    ) -> "LogosSLMonitor":
+        """فاز ۲: آستانه از صدک امتیازهای دادهٔ عادی (پیش‌فرض p95)."""
+        self.fit(X_normal)
+        z = np.abs((X_normal - self.mu) / self.sigma)
+        anom = np.clip(z.mean(axis=1) / 3.0, 0.0, 1.0)
+        unc = np.clip(z.std(axis=1) / 2.0, 0.0, 1.0)
+        self.anomaly_threshold = float(np.percentile(anom, percentile_anom))
+        self.uncertainty_threshold = float(np.percentile(unc, percentile_unc))
         return self
     def save(self, path: str) -> None:
         """ذخیره پارامترهای fit‌شده LOGOS-SL"""
@@ -105,16 +111,10 @@ class LogosSLMonitor:
         }
 
 
-def baseline_predict(
-    confidences: np.ndarray,
-    conf_threshold: float = 0.7,
-) -> Dict[str, Any]:
+def baseline_predict(confidences: np.ndarray, conf_threshold: float = 0.7) -> Dict[str, Any]:
     confidences = np.asarray(confidences, dtype=np.float64)
     decisions = np.where(confidences >= conf_threshold, "OK", "CAUTION")
-    return {
-        "anomaly_score": 1.0 - confidences,
-        "decision": decisions,
-    }
+    return {"anomaly_score": 1.0 - confidences, "decision": decisions}
 
 
 def binary_ood_flags(decisions: np.ndarray) -> np.ndarray:
@@ -128,17 +128,14 @@ def eval_ood(y_true_ood: np.ndarray, flagged: np.ndarray) -> Dict[str, float]:
     fn = int(np.sum(y_true_ood & ~flagged))
     fp = int(np.sum(~y_true_ood & flagged))
     tn = int(np.sum(~y_true_ood & ~flagged))
-    tpr = tp / (tp + fn + 1e-9)
-    fpr = fp / (fp + tn + 1e-9)
     return {
-        "TPR": float(tpr),
-        "FPR": float(fpr),
+        "TPR": float(tp / (tp + fn + 1e-9)),
+        "FPR": float(fp / (fp + tn + 1e-9)),
         "TP": tp,
         "FP": fp,
         "TN": tn,
         "FN": fn,
-        }
-
+    }
 ## وضعیت فاز ۲ تا اینجا (16/10/2026)
 - پیش‌فرض پژوهشی: fit_adaptive p95
 - آزمایش ۴ و ۵: TPR≈0.95 ، FPR≈0.085 روی CIFAR فشرده
