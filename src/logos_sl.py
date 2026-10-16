@@ -57,7 +57,28 @@ class LogosSLMonitor:
         self.mu = X_normal.mean(axis=0)
         self.sigma = X_normal.std(axis=0) + 1e-6
         return self
+    def save(self, path: str) -> None:
+        """ذخیره پارامترهای fit‌شده LOGOS-SL"""
+        if self.mu is None or self.sigma is None:
+            raise RuntimeError("Nothing to save; call fit or fit_adaptive first")
+        np.savez(
+            path,
+            mu=self.mu,
+            sigma=self.sigma,
+            anomaly_threshold=np.array([self.anomaly_threshold]),
+            uncertainty_threshold=np.array([self.uncertainty_threshold]),
+            safe_stop_anomaly=np.array([self.safe_stop_anomaly]),
+        )
 
+    def load(self, path: str) -> "LogosSLMonitor":
+        """بارگذاری پارامترهای ذخیره‌شده"""
+        data = np.load(path)
+        self.mu = data["mu"]
+        self.sigma = data["sigma"]
+        self.anomaly_threshold = float(data["anomaly_threshold"][0])
+        self.uncertainty_threshold = float(data["uncertainty_threshold"][0])
+        self.safe_stop_anomaly = float(data["safe_stop_anomaly"][0])
+        return self
     def _scores(self, X: np.ndarray):
         if self.mu is None or self.sigma is None:
             raise RuntimeError("Call fit() before predict()")
