@@ -152,3 +152,15 @@ mean TPR 0.860 (std 0.01) | mean FPR 0.085 (std 0)
 - thr≈(0.459, 0.358)
 - match: True
 - فایل: logos_sl_checkpoint_a.npz
+- ## آزمایش ۱۱ — نمونه خروجی خوانا
+NORMAL: همه OK
+OOD noise0.15: 4×CAUTION ، 1×OK
+## آزمایش ۱۰ — save/load (16/10/2026)
+match True | TPR≈0.847 | FPR≈0.085 | thr≈(0.459, 0.358)
+
+## آزمایش ۱۱ — نمونه خروجی (16/10/2026)
+NORMAL: همه OK | OOD noise0.15: 4×CAUTION، 1×OK
+
+## راهنمای استفاده
+فایل docs/usage_LOGOS_SL.md — 16/10/2026
+رفتار لایه نظارتی قابل مشاهده و منطقی است.
