@@ -4,7 +4,7 @@
 
 فاز ۱: مانیتور ناهنجاری + عدم‌قطعیت + تصمیم
 """
-
+# Checkpoint A (فاز ۲): fit_adaptive p95 + OR | مرجع آزمایش‌های ۴–۹
 from __future__ import annotations
 
 from typing import Dict, Any, Union
