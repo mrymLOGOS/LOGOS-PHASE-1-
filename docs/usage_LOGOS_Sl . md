@@ -1,5 +1,7 @@
 # راهنمای استفاده — LOGOS-SL
-
+# راهنمای استفاده — LOGOS-SL
+تاریخ: 16/10/2026
+پیکربندی مرجع: Checkpoint A (fit_adaptive p95 + OR)
 ```python
 from logos_sl import LogosSLMonitor, img_to_compact_feat  # یا مسیر src
 
