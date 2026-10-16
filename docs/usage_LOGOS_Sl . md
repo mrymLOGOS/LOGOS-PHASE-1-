@@ -14,3 +14,4 @@ out = m.predict(X)
 # decision: OK | CAUTION | SAFE_STOP
 
 m.save("logos_sl_checkpoint_a.npz")
+پیکربندی مرجع: Checkpoint A — p95 + OR
