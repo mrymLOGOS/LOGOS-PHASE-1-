@@ -145,3 +145,10 @@ date : 2026/10/13
 ## آزمایش ۹ — پایداری چند seed (نویز 0.15، p95، OR)
 mean TPR 0.860 (std 0.01) | mean FPR 0.085 (std 0)
 پیکربندی از نظر تکرارپذیری روی این پروکسی پایدار است.
+
+## آزمایش ۱۰ — save/load
+- before_save = after_load
+- TPR≈0.847 | FPR≈0.085
+- thr≈(0.459, 0.358)
+- match: True
+- فایل: logos_sl_checkpoint_a.npz
