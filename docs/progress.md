@@ -230,3 +230,8 @@ tests/test_logos_sl.py + version bump | self_test PASS
 
 ## آزمایش ۲۱ (18/10/2026 02:30)
 نسخه session 0.2.2 تأیید شد
+
+## 18/10/2026
+0.2.3 — examples/minimal_run.py
+
+
