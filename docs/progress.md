@@ -224,3 +224,5 @@ tests/test_logos_sl.py + version bump | self_test PASS
 آزمایش ۲۰ پاس شد | 18/10/2026 01:00 | نسخه 0.2.1
 
 
+## 18/10/2026 02:30
+نسخه 0.2.2 — README Install + هم‌راستاسازی بسته
