@@ -10,6 +10,8 @@ __version__ = "0.2.1"  # 18/10/2026
 __version__ = "0.2.2"  # 18/10/2026 02:30
 __version__ = "0.2.3"  # 18/10/2026
 
+```python
+__version__ = "0.2.4"
 
 
 from __future__ import annotations
