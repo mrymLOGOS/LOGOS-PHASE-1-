@@ -85,3 +85,28 @@ python -c "from src.logos_sl import logos_sl_self_test, __version__; print(__ver
 ```python
 __version__ = "0.2.2"  # 18/10/2026 02:30
 python tests/test_logos_sl.py
+
+
+## ساختار مخزن (18/10/2026)
+
+```text
+LOGOS-PHASE-1-/
+├── README.md
+├── requirements.txt
+├── src/
+│   ├── __init__.py
+│   └── logos_sl.py          # هسته LOGOS-SL
+├── tests/
+│   └── test_logos_sl.py
+├── examples/
+│   └── minimal_run.py
+└── docs/
+    ├── problem.md
+    ├── success_metric.md
+    ├── experiment_log.md
+    ├── progress.md
+    ├── usage_LOGOS_SL.md
+    └── CHANGELOG.md
+
+
+
