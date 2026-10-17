@@ -21,3 +21,8 @@ def main():
 
 if __name__ == "__main__":
     main()
+## آزمایش ۲۲ — minimal flow (18/10/2026)
+version 0.2.3 | عادی→OK | OOD→CAUTION/SAFE_STOP
+examples/minimal_run.py هم‌راستا با این رفتار
+
+
