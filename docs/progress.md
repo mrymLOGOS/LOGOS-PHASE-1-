@@ -234,4 +234,9 @@ tests/test_logos_sl.py + version bump | self_test PASS
 ## 18/10/2026
 0.2.3 — examples/minimal_run.py
 
+## آزمایش ۲۲ — minimal flow (18/10/2026)
+version 0.2.3 | عادی→OK | OOD→CAUTION/SAFE_STOP
+examples/minimal_run.py هم‌راستا با این رفتار
+
+
 
