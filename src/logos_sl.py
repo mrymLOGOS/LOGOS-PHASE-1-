@@ -88,11 +88,11 @@ class LogosSLMonitor:
         self.uncertainty_threshold = float(data["uncertainty_threshold"][0])
         self.safe_stop_anomaly = float(data["safe_stop_anomaly"][0])
         return self
-        
-"version": __version__,
+    
 
         def get_config(self) -> dict:
         return {
+            "version": __version__,
             "anomaly_threshold": self.anomaly_threshold,
             "uncertainty_threshold": self.uncertainty_threshold,
             "safe_stop_anomaly": self.safe_stop_anomaly,
@@ -183,6 +183,7 @@ def build_status_report(monitor: LogosSLMonitor | None = None) -> dict:
     """گزارش وضعیت استاندارد بنیاد LOGOS — LOGOS-SL"""
     st = logos_sl_self_test()
     cfg = monitor.get_config() if monitor is not None else {
+    "version": __version__,
         "checkpoint": "B",
         "date": "17/10/2026",
         "fitted": False,
