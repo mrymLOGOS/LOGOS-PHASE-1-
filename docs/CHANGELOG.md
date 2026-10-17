@@ -23,3 +23,5 @@
 - بخش Install در README
 - src/__init__.py
 - هم‌راستاسازی نسخه
+- ## 0.2.3 — 18/10/2026
+- examples/minimal_run.py
