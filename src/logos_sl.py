@@ -6,6 +6,7 @@
 # Checkpoint A (فاز ۲): fit_adaptive p95 + OR | مرجع آزمایش‌های ۴–۹
 # Checkpoint B (17/10/2026): p95+OR+safe_stop0.75 | save/load | self_test | get_config
 __version__ = "0.2.0"  # فاز ۲ / Checkpoint B / 17/10/2026
+__version__ = "0.2.1"  # 18/10/2026
 
 from __future__ import annotations
 
