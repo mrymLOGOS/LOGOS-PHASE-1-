@@ -200,4 +200,8 @@ branch: LOGOS-SL | phase: 2 | checkpoint: B
 config: fit_adaptive p95 + OR + safe_stop=0.75  
 self_test: ok True | TPR 1.0 | FPR 0.083 | save_load True
 
-
+مورد,وضعیت
+Checkpoint B,تأیید
+آزمایش ۱۲–۱۶,انجام و قابل ثبت
+save/load / self_test / get_config,OK
+پیکربندی,p95 + OR + safe_stop 0.75
