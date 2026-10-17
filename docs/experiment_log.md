@@ -235,3 +235,12 @@ save/load / self_test / get_config,OK
 ## آزمایش ۱۷ — report JSON (17/10/2026)
 self_test ok | normal_OK 0.92 | ood_flag 1.0 | checkpoint B
 نمونه گزارش ساختاری برای آرشیو/API بعدی.
+
+## آزمایش ۱۸ — build_status_report (17/10/2026)
+گزارش یکپارچه: project + config + self_test | ok True
+جمع‌بندی قفل امروز (17/10/2026
+لایه,وضعیت
+Checkpoint A,ویژگی فشرده + p95 + OR
+Checkpoint B,SAFE_STOP نردبان، ترکیب OOD، save/load، self_test، get_config، report
+آزمایش‌ها,۱۲ → ۱۸ انجام شد
+کد مرجع,src/logos_sl.py
