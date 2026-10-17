@@ -176,4 +176,20 @@ if __name__ == "__main__":
     print("بنیاد LOGOS | LOGOS-SL self-test")
     print(logos_sl_self_test())
 
+def build_status_report(monitor: LogosSLMonitor | None = None) -> dict:
+    """گزارش وضعیت استاندارد بنیاد LOGOS — LOGOS-SL"""
+    st = logos_sl_self_test()
+    cfg = monitor.get_config() if monitor is not None else {
+        "checkpoint": "B",
+        "date": "17/10/2026",
+        "fitted": False,
+    }
+    return {
+        "project": "LOGOS-SL",
+        "date": "17/10/2026",
+        "checkpoint": "B",
+        "config": cfg,
+        "self_test": st,
+}
+
 
