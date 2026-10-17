@@ -194,3 +194,10 @@ docs/usage_LOGOS_SL.md — 16/10/2026
 
 آزمایش ۱۵ (17/10/2026): self-test پاس — ok True.
 Checkpoint B + self-test در کد مرجع.
+
+## وضعیت اجرایی (17/10/2026)
+branch: LOGOS-SL | phase: 2 | checkpoint: B  
+config: fit_adaptive p95 + OR + safe_stop=0.75  
+self_test: ok True | TPR 1.0 | FPR 0.083 | save_load True
+
+
