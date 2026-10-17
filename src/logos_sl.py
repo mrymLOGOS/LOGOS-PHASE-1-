@@ -141,3 +141,26 @@ def eval_ood(y_true_ood: np.ndarray, flagged: np.ndarray) -> Dict[str, float]:
 - آزمایش ۴ و ۵: TPR≈0.95 ، FPR≈0.085 روی CIFAR فشرده
 - API رسمی fit_adaptive در logos_sl.py تأیید شد
 - هدف بعدی: کاهش FPR با حفظ TPR قابل قبول
+
+def logos_sl_self_test() -> dict:
+    """خودآزمایی سریع بدون دیتاست سنگین — 17/10/2026"""
+    rng = np.random.default_rng(42)
+    Xn = rng.normal(0, 1, size=(300, 32))
+    Xo = rng.normal(2.5, 1.5, size=(100, 32))
+    m = LogosSLMonitor().fit_adaptive(Xn, 95.0, 95.0)
+    fpr = float(np.mean(m.predict(Xn)["decision"] != "OK"))
+    tpr = float(np.mean(m.predict(Xo)["decision"] != "OK"))
+    m.save("_logos_sl_self_test.npz")
+    m2 = LogosSLMonitor().load("_logos_sl_self_test.npz")
+    same = bool(
+        np.allclose(m.predict(Xo)["anomaly_score"], m2.predict(Xo)["anomaly_score"])
+    )
+    ok = (tpr > 0.8) and (fpr < 0.2) and same
+    return {"ok": ok, "TPR": round(tpr, 3), "FPR": round(fpr, 3), "save_load": same}
+
+
+if __name__ == "__main__":
+    print("بنیاد LOGOS | LOGOS-SL self-test")
+    print(logos_sl_self_test())
+
+
