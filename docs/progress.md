@@ -216,6 +216,11 @@ logos_sl_self_test / build_status_report
 
 ## 0.2.1 — 18/10/2026 01:00
 tests/test_logos_sl.py + version bump | self_test PASS
+
+## 18/10/2026
+- نسخه 0.2.1
+- فایل tests/test_logos_sl.py
+- فایل src/__init__.py (مسیر import)
 آزمایش ۲۰ پاس شد | 18/10/2026 01:00 | نسخه 0.2.1
 
 
