@@ -244,3 +244,12 @@ Checkpoint A,ویژگی فشرده + p95 + OR
 Checkpoint B,SAFE_STOP نردبان، ترکیب OOD، save/load، self_test، get_config، report
 آزمایش‌ها,۱۲ → ۱۸ انجام شد
 کد مرجع,src/logos_sl.py
+
+
+## آزمایش ۱۹ — version 0.2.0 (17/10/2026)
+مورد,مقدار
+نسخه,0.2.0
+Checkpoint,B
+self_test,True
+تاریخ,17/10/2026
+نسخه‌گذاری در get_config و گزارش تأیید شد | self_test ok True
