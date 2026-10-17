@@ -266,5 +266,9 @@ PASS self_test | version 0.2.1
 ## آزمایش ۲۲ — minimal flow (18/10/2026)
 version 0.2.3 | عادی→OK | OOD→CAUTION/SAFE_STOP
 examples/minimal_run.py هم‌راستا با این رفتار
+نمونه,a,u,تصمیم,معنی
+0–2,پایین,پایین,OK,عادی
+"3, 5",بالا,بالا,CAUTION,OOD
+4,0.78,0.55,SAFE_STOP,OOD شدید
 
 
