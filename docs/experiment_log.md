@@ -214,3 +214,7 @@ NORMAL: همه OK | OOD noise0.15: 4×CAUTION، 1×OK
 هنوز پروکسی آزمایشگاهی است؛ نه استک خودران واقعی.
 
 
+
+
+## آزمایش ۱۵ — self-test بدون CIFAR (17/10/2026)
+ok True | TPR 1.0 | FPR 0.083 | save_load True
