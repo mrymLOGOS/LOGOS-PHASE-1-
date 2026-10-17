@@ -1,0 +1,23 @@
+"""نمونه حداقلی LOGOS-SL — 18/10/2026 02:30"""
+import sys
+sys.path.insert(0, "src")
+
+import numpy as np
+from logos_sl import LogosSLMonitor, logos_sl_self_test, __version__
+
+def main():
+    print("بنیاد LOGOS | minimal_run |", __version__)
+    print("self_test:", logos_sl_self_test())
+
+    rng = np.random.default_rng(0)
+    X_normal = rng.normal(0, 1, size=(200, 32))
+    X_ood = rng.normal(2.0, 1.2, size=(50, 32))
+
+    m = LogosSLMonitor().fit_adaptive(X_normal, 95.0, 95.0)
+    out = m.predict(np.vstack([X_normal[:5], X_ood[:5]]))
+    for i, d in enumerate(out["decision"]):
+        print(i, "a=%.3f u=%.3f dec=%s" % (out["anomaly_score"][i], out["uncertainty"][i], d))
+    print("config:", m.get_config())
+
+if __name__ == "__main__":
+    main()
