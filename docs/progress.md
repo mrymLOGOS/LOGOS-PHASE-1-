@@ -1,3 +1,4 @@
+
 گزارش پیشرفت: [docs/progress.md](docs/progress.md)## وضعیت
 گزارش پیشرفت فاز ۱: [docs/progress.md](docs/progress.md)
 date:2026/10/13
@@ -139,5 +140,20 @@ docs/usage_LOGOS_SL.md — 16/10/2026
 | 0.40 | 0.000 | 0.575 | 0.425 | 0.737 |
 | 0.60 | 0.000 | 0.007 | 0.993 | 0.976 |
 
+## Checkpoint B — فاز ۲ (17/10/2026)
+
+
 سه‌سطح تصمیم OK / CAUTION / SAFE_STOP با شدت OOD هم‌خوان است.
+
+
+
+## Checkpoint B — فاز ۲ (17/10/2026)
+
+علاوه بر Checkpoint A:
+- save / load تأیید شد
+- راهنما: docs/usage_LOGOS_SL.md
+- آزمایش ۱۲: نردبان OK → CAUTION → SAFE_STOP با افزایش شدت OOD تأیید شد
+- requirements.txt: numpy, scikit-learn, torch, torchvision
+
+پیکربندی اجرا: fit_adaptive p95 + OR + safe_stop_anomaly=0.75.
 
