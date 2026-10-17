@@ -205,3 +205,12 @@ Checkpoint B,تأیید
 آزمایش ۱۲–۱۶,انجام و قابل ثبت
 save/load / self_test / get_config,OK
 پیکربندی,p95 + OR + safe_stop 0.75
+
+## پایان روز آزمایشی 17/10/2026
+Checkpoint B کامل شد.
+API عملیاتی LOGOS-SL:
+fit / fit_adaptive / predict / save / load / get_config /
+logos_sl_self_test / build_status_report
+پیکربندی: p95 + OR + safe_stop=0.75
+محدودیت: اعتبارسنجی هنوز روی پروکسی است نه ناوگان واقعی.
+
