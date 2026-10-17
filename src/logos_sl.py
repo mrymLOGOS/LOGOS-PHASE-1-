@@ -4,6 +4,8 @@
 شاخه: LOGOS-SL — Supervisory Layer for Epistemic Uncertainty
 """
 # Checkpoint A (فاز ۲): fit_adaptive p95 + OR | مرجع آزمایش‌های ۴–۹
+# Checkpoint B (17/10/2026): p95+OR+safe_stop0.75 | save/load | self_test | get_config
+
 from __future__ import annotations
 
 from typing import Dict, Any, Union
