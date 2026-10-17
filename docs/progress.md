@@ -239,4 +239,9 @@ version 0.2.3 | عادی→OK | OOD→CAUTION/SAFE_STOP
 examples/minimal_run.py هم‌راستا با این رفتار
 
 
+## 0.2.4 — 18/10/2026
+
+مستندسازی ساختار مخزن در README
+
+
 
