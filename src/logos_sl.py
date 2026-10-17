@@ -85,6 +85,17 @@ class LogosSLMonitor:
         self.uncertainty_threshold = float(data["uncertainty_threshold"][0])
         self.safe_stop_anomaly = float(data["safe_stop_anomaly"][0])
         return self
+
+        def get_config(self) -> dict:
+        return {
+            "anomaly_threshold": self.anomaly_threshold,
+            "uncertainty_threshold": self.uncertainty_threshold,
+            "safe_stop_anomaly": self.safe_stop_anomaly,
+            "fitted": self.mu is not None,
+            "feature_dim": None if self.mu is None else int(self.mu.shape[0]),
+            "checkpoint": "B",
+            "date": "17/10/2026",
+        }
     def _scores(self, X: np.ndarray):
         if self.mu is None or self.sigma is None:
             raise RuntimeError("Call fit() before predict()")
