@@ -250,6 +250,14 @@ Checkpoint B,SAFE_STOP نردبان، ترکیب OOD، save/load، self_test، g
 مورد,مقدار
 نسخه,0.2.0
 Checkpoint,B
+
+
 self_test,True
 تاریخ,17/10/2026
 نسخه‌گذاری در get_config و گزارش تأیید شد | self_test ok True
+ 
+
+PASS | ok True | TPR 1.0 | FPR 0.083 | save_load True | version 0.2.1
+## آزمایش ۲۰ — تست 0.2.1 (18/10/2026 01:00)
+PASS self_test | version 0.2.1
+فایل مرجع تست: tests/test_logos_sl.py
