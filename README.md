@@ -65,3 +65,23 @@ Phase 1 — تعریف مسئله و معیار (در حال اجرا)
 - 
 
 
+## نصب و اجرای سریع (18/10/2026)
+
+```bash
+# وابستگی‌ها
+pip install -r requirements.txt
+
+# خودآزمایی
+python -c "from src.logos_sl import logos_sl_self_test, __version__; print(__version__, logos_sl_self_test())"
+
+# یا تست
+
+---
+
+### نسخه را در کد هم یکی کن
+
+در `src/logos_sl.py`:
+
+```python
+__version__ = "0.2.2"  # 18/10/2026 02:30
+python tests/test_logos_sl.py
