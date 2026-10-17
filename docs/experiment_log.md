@@ -261,3 +261,8 @@ PASS | ok True | TPR 1.0 | FPR 0.083 | save_load True | version 0.2.1
 ## آزمایش ۲۰ — تست 0.2.1 (18/10/2026 01:00)
 PASS self_test | version 0.2.1
 فایل مرجع تست: tests/test_logos_sl.py
+## آزمایش ۲۱ (18/10/2026 02:30)
+نسخه session 0.2.2 تأیید شد
+
+
+
