@@ -263,6 +263,8 @@ PASS self_test | version 0.2.1
 فایل مرجع تست: tests/test_logos_sl.py
 ## آزمایش ۲۱ (18/10/2026 02:30)
 نسخه session 0.2.2 تأیید شد
-
+## آزمایش ۲۲ — minimal flow (18/10/2026)
+version 0.2.3 | عادی→OK | OOD→CAUTION/SAFE_STOP
+examples/minimal_run.py هم‌راستا با این رفتار
 
 
