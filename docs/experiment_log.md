@@ -218,3 +218,13 @@ NORMAL: همه OK | OOD noise0.15: 4×CAUTION، 1×OK
 
 ## آزمایش ۱۵ — self-test بدون CIFAR (17/10/2026)
 ok True | TPR 1.0 | FPR 0.083 | save_load True
+
+## آزمایش ۱۶ — get_config (17/10/2026)
+config نمونه (synthetic): fitted True | dim 32 | checkpoint B
+self_test: ok True | TPR 1.0 | FPR 0.083 | save_load True
+
+مورد,وضعیت
+Checkpoint B,تأیید
+آزمایش ۱۲–۱۶,انجام و قابل ثبت
+save/load / self_test / get_config,OK
+پیکربندی,p95 + OR + safe_stop 0.75
