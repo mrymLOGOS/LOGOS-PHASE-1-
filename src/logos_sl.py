@@ -5,6 +5,7 @@
 """
 # Checkpoint A (فاز ۲): fit_adaptive p95 + OR | مرجع آزمایش‌های ۴–۹
 # Checkpoint B (17/10/2026): p95+OR+safe_stop0.75 | save/load | self_test | get_config
+__version__ = "0.2.0"  # فاز ۲ / Checkpoint B / 17/10/2026
 
 from __future__ import annotations
 
@@ -87,6 +88,8 @@ class LogosSLMonitor:
         self.uncertainty_threshold = float(data["uncertainty_threshold"][0])
         self.safe_stop_anomaly = float(data["safe_stop_anomaly"][0])
         return self
+        
+"version": __version__,
 
         def get_config(self) -> dict:
         return {
