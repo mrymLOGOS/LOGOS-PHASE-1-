@@ -227,4 +227,11 @@ self_test: ok True | TPR 1.0 | FPR 0.083 | save_load True
 Checkpoint B,تأیید
 آزمایش ۱۲–۱۶,انجام و قابل ثبت
 save/load / self_test / get_config,OK
+
+
+
 پیکربندی,p95 + OR + safe_stop 0.75
+
+## آزمایش ۱۷ — report JSON (17/10/2026)
+self_test ok | normal_OK 0.92 | ood_flag 1.0 | checkpoint B
+نمونه گزارش ساختاری برای آرشیو/API بعدی.
