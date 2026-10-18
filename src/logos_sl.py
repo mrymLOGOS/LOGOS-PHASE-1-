@@ -17,6 +17,10 @@ __version__ = "0.2.3"  # 18/10/2026
 __version__ = "0.2.4"
 __version__ = "0.2.5"  # 18/10/2026
 __version__ = "0.2.6"
+__version__ = "0.3.0"  # 18/10/2026 — reason in predict
+
+
+
 from __future__ import annotations
 
 from typing import Dict, Any, Union
