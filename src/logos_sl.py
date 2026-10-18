@@ -5,6 +5,9 @@
 """
 # Checkpoint A (فاز ۲): fit_adaptive p95 + OR | مرجع آزمایش‌های ۴–۹
 # Checkpoint B (17/10/2026): p95+OR+safe_stop0.75 | save/load | self_test | get_config
+
+**نسخه:** 0.2.6 · **شاخه:** LOGOS-SL · **Checkpoint:** B · **تاریخ:** 18/10/2026
+لایه نظارتی عدم‌قطعیت معرفتی (پروکسی آزمایشگاهی — نه استک خودران تجاری).
 __version__ = "0.2.0"  # فاز ۲ / Checkpoint B / 17/10/2026
 __version__ = "0.2.1"  # 18/10/2026
 __version__ = "0.2.2"  # 18/10/2026 02:30
@@ -13,8 +16,7 @@ __version__ = "0.2.3"  # 18/10/2026
 ```python
 __version__ = "0.2.4"
 __version__ = "0.2.5"  # 18/10/2026
-
-
+__version__ = "0.2.6"
 from __future__ import annotations
 
 from typing import Dict, Any, Union
