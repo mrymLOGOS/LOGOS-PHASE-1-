@@ -271,4 +271,11 @@ examples/minimal_run.py هم‌راستا با این رفتار
 "3, 5",بالا,بالا,CAUTION,OOD
 4,0.78,0.55,SAFE_STOP,OOD شدید
 
+## آزمایش ۲۳ (18/10/2026)
+
+
+0.2.5 — .gitignore + LICENSE + src یکپارچه | PASS structural
+
+
+
 
