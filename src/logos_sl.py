@@ -135,6 +135,31 @@ class LogosSLMonitor:
             "uncertainty": uncertainty,
             "decision": np.array(decisions, dtype=object),
         }
+            def predict(self, X):
+        z = np.abs((X - self.mu) / self.sigma)
+        anomaly = np.clip(z.mean(axis=1) / 3.0, 0.0, 1.0)
+        uncertainty = np.clip(z.std(axis=1) / 2.0, 0.0, 1.0)
+        decisions, reasons = [], []
+        for a, u in zip(anomaly, uncertainty):
+            hit_a = a >= self.anomaly_threshold
+            hit_u = u >= self.uncertainty_threshold
+            if hit_a or hit_u:
+                decisions.append("SAFE_STOP" if a >= self.safe_stop_anomaly else "CAUTION")
+                if hit_a and hit_u:
+                    reasons.append("both")
+                elif hit_a:
+                    reasons.append("anomaly")
+                else:
+                    reasons.append("uncertainty")
+            else:
+                decisions.append("OK")
+                reasons.append("none")
+        return {
+            "anomaly_score": anomaly,
+            "uncertainty": uncertainty,
+            "decision": np.array(decisions, dtype=object),
+            "reason": np.array(reasons, dtype=object),
+        }
 
 
 def baseline_predict(confidences: np.ndarray, conf_threshold: float = 0.7) -> Dict[str, Any]:
