@@ -1,0 +1,12 @@
+__pycache__/
+*.py[cod]
+*.npz
+.ipynb_checkpoints/
+data/
+.env
+.venv/
+venv/
+_t.npz
+_logos_sl_self_test.npz
+logos_sl_checkpoint_a.npz
+.DS_Store
