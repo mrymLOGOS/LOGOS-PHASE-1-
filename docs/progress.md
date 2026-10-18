@@ -243,5 +243,9 @@ examples/minimal_run.py هم‌راستا با این رفتار
 
 مستندسازی ساختار مخزن در README
 
+## آزمایش ۲۳ (18/10/2026)
+0.2.5 — .gitignore + LICENSE + src یکپارچه | PASS structural
+
+
 
 
