@@ -17,7 +17,7 @@ app.add_middleware(
 @app.get("/api/status")
 async def get_status():
     # این همان دیتایی است که داشبورد HTML تو به دنبال آن می‌گردد
-    return {
+return {
         "system_id": "LOGOS-PROD-CLOUD",
         "history": [
             {
