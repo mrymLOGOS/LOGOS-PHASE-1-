@@ -5,7 +5,10 @@ import random
 from datetime import datetime
 
 app = FastAPI()
-
+@app.get("/")
+async def root():
+    return {"status": "LOGOS online", "docs": "/docs"}
+    
 # اجازه دادن به فرانت‌اند برای ارتباط با بک‌اند
 app.add_middleware(
     CORSMiddleware,
