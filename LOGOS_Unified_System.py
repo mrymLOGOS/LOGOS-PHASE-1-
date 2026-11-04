@@ -4,21 +4,20 @@ from pydantic import BaseModel
 import math
 import random
 
-app = FastAPI(title="LOGOS Sacred Geometry Unified Engine")
+app = FastAPI(title="LOGOS Sacred Geometry & Monte Carlo Unified Engine")
 
 BASE_FREQUENCY = 432.0
 GOLDEN_RATIO = 1.61803398875
 
 class SystemState(BaseModel):
     frequency: float = BASE_FREQUENCY
-    deviation: float = 0.5
-    acceleration: float = 0.1
-    curvature: float = 1.2
-    entropy: float = 0.2
+    deviation: float = 0.2
+    acceleration: float = 0.05
+    curvature: float = GOLDEN_RATIO
+    entropy: float = 0.05
 
 @app.get("/", response_class=HTMLResponse)
 def interactive_dashboard():
-    """داشبورد بصری زنده و یکپارچه با هندسه مقدس و کدهای LOGOS"""
     html_content = """
     <!DOCTYPE html>
     <html lang="fa" dir="rtl">
@@ -40,14 +39,14 @@ def interactive_dashboard():
     <body>
         <div class="container">
             <h1>پروژه LOGOS : هسته هندسه مقدس و ارتعاش ۴۳۲Hz</h1>
-            <p>معمار آگاهی: مریم | نظارت کوانتومی و خودترمیم‌گر سیستم</p>
+            <p>معمار آگاهی: مریم | شبیه‌سازی مونت‌کارلو و همگام‌سازی کوانتومی</p>
             
-            <div id="status-box" class="status waiting">وضعیت سیستم: در حال همگام‌سازی با میدان کوانتومی...</div>
+            <div id="status-box" class="status waiting">وضعیت سیستم: در حال اجرای شبیه‌سازی مونت‌کارلو...</div>
             
             <canvas id="sacredCanvas" width="500" height="500"></canvas>
             
             <div>
-                <button onclick="triggerAnalysis()">بررسی و آپدیت میدان کیهانی</button>
+                <button onclick="triggerAnalysis()">اعمال همگام‌سازی طلایی (φ)</button>
             </div>
         </div>
 
@@ -62,23 +61,22 @@ def interactive_dashboard():
                 ctx.translate(canvas.width / 2, canvas.height / 2);
 
                 let petals = 12;
-                let radius = 150 * grading;
+                let radius = 180 * grading;
                 
-                // رسم هندسه مقدس (الگوی گل حیات و رزویت)
                 for (let i = 0; i < petals; i++) {
                     ctx.beginPath();
                     let theta = (i * 2 * Math.PI) / petals + angle;
                     let x = Math.cos(theta) * radius;
                     let y = Math.sin(theta) * radius;
                     
-                    ctx.arc(x, y, 80 * grading, 0, 2 * Math.PI);
+                    ctx.arc(x, y, 90 * grading, 0, 2 * Math.PI);
                     ctx.strokeStyle = status.includes("1111") ? "#00ffcc" : "#ff3366";
-                    ctx.lineWidth = 1.5;
+                    ctx.lineWidth = status.includes("1111") ? 2.5 : 1.5;
                     ctx.stroke();
                 }
 
                 ctx.restore();
-                angle += 0.01;
+                angle += 0.015;
             }
 
             async function triggerAnalysis() {
@@ -86,7 +84,7 @@ def interactive_dashboard():
                     let response = await fetch('/logos/analyze', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ frequency: 432.0, deviation: 0.2, acceleration: 0.05, curvature: 1.618, entropy: 0.1 })
+                        body: JSON.stringify({ frequency: 432.0, deviation: 0.1, acceleration: 0.02, curvature: 1.618, entropy: 0.02 })
                     });
                     let data = await response.json();
                     
@@ -105,7 +103,6 @@ def interactive_dashboard():
                 }
             }
 
-            // اجرای اولیه
             setInterval(triggerAnalysis, 2000);
         </script>
     </body>
@@ -115,11 +112,15 @@ def interactive_dashboard():
 
 @app.post("/logos/analyze")
 def analyze_system(state: SystemState):
-    """محاسبات کوانتومی، هندسه مقدس و مونت‌کارلو"""
-    harmonic = math.sin(state.deviation * math.pi / 180.0) * math.cos(state.curvature / GOLDEN_RATIO)
-    sacred_resonance = abs(harmonic * (state.frequency / BASE_FREQUENCY))
+    """محاسبات مونت‌کارلو و تطبیق با هندسه مقدس"""
+    # شبیه‌سازی مونت‌کارلو (Monte Carlo Simulation) برای پایداری میدان
+    monte_carlo_samples = [random.gauss(0.85, 0.05) for _ in range(100)]
+    mc_factor = sum(monte_carlo_samples) / len(monte_carlo_samples)
     
-    grading = round(min(max((sacred_resonance * 0.7) + 0.3 * (1.0 - state.entropy), 0.0), 1.0), 4)
+    harmonic = math.sin(state.deviation * math.pi / 180.0) * math.cos(state.curvature / GOLDEN_RATIO)
+    sacred_resonance = abs(harmonic * (state.frequency / BASE_FREQUENCY)) + mc_factor
+    
+    grading = round(min(max(sacred_resonance * 0.5 + 0.5 * (1.0 - state.entropy), 0.0), 1.0), 4)
     
     if grading >= 0.7:
         status = "1111 - ALIGNMENT_CONFIRMED"
@@ -131,4 +132,4 @@ def analyze_system(state: SystemState):
         "sacred_resonance": round(sacred_resonance, 4),
         "alignment_status": status
     }
-  
+    
